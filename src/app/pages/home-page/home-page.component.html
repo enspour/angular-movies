@@ -1,0 +1,20 @@
+<div class="navigation">
+  <app-search-input
+    size="large"
+    placeholder="Type here..."
+    [autofocus]="true"
+    [searchControl]="searchControl"
+    (enterEvent)="onSearch()"
+  />
+
+  <a button-link routerLink="/watch-list">WATCHLIST</a>
+</div>
+
+<section class="popular">
+  <div class="popular__title">Popular</div>
+  <div class="popular__movies">
+    @for (popularMovie of popularMovies$ | async; track popularMovie.id) {
+      <app-movie-card [movie]="popularMovie" [isGlow]="true" />
+    }
+  </div>
+</section>

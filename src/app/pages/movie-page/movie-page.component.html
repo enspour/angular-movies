@@ -1,0 +1,50 @@
+@let movie = movie$ | async;
+
+@if (loadingStatus() === "error") {
+  <div>error...</div>
+} @else if (loadingStatus() === "pending") {
+  <div>loading...</div>
+} @else if (movie) {
+  <div class="container">
+    <div class="poster">
+      <app-movie-poster [movie]="movie" [isRounded]="true" [isGlow]="true" />
+    </div>
+
+    <div class="info">
+      <div class="info__title">{{ movie.title }}</div>
+
+      <div class="info__sections">
+        <section class="info__section">
+          <app-movie-genres [movie]="movie" />
+          <app-movie-ratings [movie]="movie" />
+
+          <div class="info__plot">{{ movie.plot }}</div>
+
+          @if (inWatchList$ | async) {
+            <button
+              app-button
+              class="info__btn-watchlist"
+              type="outlined"
+              (click)="onRemoveFromWatchList(movie)"
+            >
+              - WATCHLIST
+            </button>
+          } @else {
+            <button
+              app-button
+              class="info__btn-watchlist"
+              type="outlined"
+              (click)="onAddToWatchList(movie)"
+            >
+              + WATCHLIST
+            </button>
+          }
+        </section>
+
+        <section>
+          <app-movie-team [movie]="movie" />
+        </section>
+      </div>
+    </div>
+  </div>
+}

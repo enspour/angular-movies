@@ -1,0 +1,53 @@
+:host {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  border-radius: 20px;
+  cursor: pointer;
+
+  &:hover {
+    .info {
+      background-color: #2e2f35;
+    }
+  }
+
+  ::ng-deep .poster__image {
+    transition: transform 0.3s;
+  }
+
+  &:hover {
+    ::ng-deep .poster__image {
+      transform: scale(1.1);
+    }
+  }
+}
+
+.link {
+  display: contents;
+}
+
+.info {
+  padding: 10px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background-color: #222222;
+  border-radius: 0 0 20px 20px;
+}
+
+.title {
+  font-size: 20px;
+  font-weight: 500;
+  text-align: center;
+}
+
+.details {
+  margin-top: auto;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  color: #666666;
+}

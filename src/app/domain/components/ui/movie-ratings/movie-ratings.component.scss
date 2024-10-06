@@ -1,0 +1,14 @@
+:host {
+  display: flex;
+  gap: 8px;
+}
+
+.rating {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 12px;
+  background-color: #2e2f35;
+  border-radius: 4px;
+}

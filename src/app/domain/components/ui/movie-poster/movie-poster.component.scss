@@ -1,0 +1,49 @@
+:host {
+  width: 100%;
+  display: block;
+  position: relative;
+}
+
+.poster {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+.poster--rounded {
+  border-radius: 20px;
+}
+
+.poster--rounded-top {
+  border-radius: 20px 20px 0 0;
+}
+
+.poster--rounded-bottom {
+  border-radius: 0 0 20px 20px;
+}
+.poster__image {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  aspect-ratio: 9 / 14;
+}
+
+.poster__glowing {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  filter: blur(20px);
+  transform: scale(1.05);
+  opacity: 0.4;
+}
+
+.poster__default {
+  width: 100%;
+  height: 100%;
+  color: #555555;
+  aspect-ratio: 9 / 14;
+}

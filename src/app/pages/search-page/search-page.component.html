@@ -1,0 +1,11 @@
+@let result = searchResult$ | async;
+
+@if (result) {
+  @for (movie of result.movies; track movie.id; let last = $last) {
+    @defer (on viewport) {
+      <app-movie-card [movie]="movie" (loadEvent)="last && load()" />
+    } @placeholder {
+      <div>Load More...</div>
+    }
+  }
+}

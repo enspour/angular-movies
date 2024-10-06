@@ -1,0 +1,16 @@
+<a class="link" [routerLink]="'/movie/' + movie().id">
+  <app-movie-poster
+    [movie]="movie()"
+    [isGlow]="isGlow()"
+    [isRoundedTop]="true"
+  />
+
+  <div class="info">
+    <div class="title">{{ movie().title }}</div>
+
+    <div class="details">
+      <div>{{ movie().type }}</div>
+      <div>{{ movie().year }}</div>
+    </div>
+  </div>
+</a>

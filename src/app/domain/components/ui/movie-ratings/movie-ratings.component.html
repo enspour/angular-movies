@@ -1,0 +1,6 @@
+@for (rating of movie().ratings; track $index) {
+  <div class="rating">
+    <div>{{ rating.source }}</div>
+    <div>{{ rating.value }}</div>
+  </div>
+}

@@ -1,0 +1,26 @@
+.group {
+  margin-bottom: 20px;
+  border-top: 2px solid #333b4c;
+}
+
+.group__title {
+  margin: 10px 0;
+  font-size: 20px;
+  color: #9eb2e5;
+}
+
+.group__members {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.group__member {
+  font-size: 18px;
+  color: #aaaaaa;
+  text-wrap: nowrap;
+
+  &:not(:last-child)::after {
+    content: "•";
+    padding: 0 4px;
+  }
+}

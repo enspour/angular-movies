@@ -1,0 +1,27 @@
+:host {
+  width: 100%;
+}
+
+.input {
+  width: 100%;
+  border: 2px solid transparent;
+  outline: none;
+  color: #cccccc;
+  background-color: #25272c;
+
+  &:focus {
+    border: 2px solid #cccccc;
+  }
+}
+
+.input--normal {
+  padding: 8px 12px;
+  font-size: 20px;
+  border-radius: 12px;
+}
+
+.input--large {
+  padding: 8px 18px;
+  font-size: 32px;
+  border-radius: 14px;
+}

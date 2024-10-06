@@ -1,0 +1,13 @@
+<a button-link class="link" type="outlined" routerLink="/">HOME</a>
+
+<div class="search">
+  <app-search-input
+    placeholder="Type here..."
+    [searchControl]="searchControl"
+    (enterEvent)="onSearch()"
+  />
+</div>
+
+<a button-link class="link" type="outlined" routerLink="/watch-list">
+  WATCHLIST
+</a>

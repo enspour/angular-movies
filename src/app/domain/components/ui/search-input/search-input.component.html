@@ -1,0 +1,9 @@
+<input
+  #input
+  class="input"
+  [class.input--normal]="size() === 'normal'"
+  [class.input--large]="size() === 'large'"
+  [placeholder]="placeholder()"
+  [formControl]="searchControl()"
+  (keyup.enter)="enterEvent.emit($event)"
+/>

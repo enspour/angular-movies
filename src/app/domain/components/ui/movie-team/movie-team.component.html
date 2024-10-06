@@ -1,0 +1,22 @@
+<div class="group">
+  <div class="group__title">Director</div>
+  <div class="group__member">{{ movie().director }}</div>
+</div>
+
+<div class="group">
+  <div class="group__title">Actors</div>
+  <div class="group__members">
+    @for (actor of movie().actors; track $index) {
+      <div class="group__member">{{ actor }}</div>
+    }
+  </div>
+</div>
+
+<div class="group">
+  <div class="group__title">Writers</div>
+  <div class="group__members">
+    @for (writer of movie().writers; track $index) {
+      <div class="group__member">{{ writer }}</div>
+    }
+  </div>
+</div>
