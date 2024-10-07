@@ -39,6 +39,21 @@ export class LocalStorageObservable extends LocalStorageBase {
     }
   }
 
+  public override set<K extends Key>(key: K, value: Pairs[K]): void {
+    super.set(key, value);
+    this.notify(key);
+  }
+
+  public override remove<K extends Key>(key: K) {
+    super.remove(key);
+    this.notify(key);
+  }
+
+  public override clear() {
+    super.clear();
+    this.notifyAll();
+  }
+
   private appendSubscriber<K extends Key>(key: K, subscriber: Subscriber<any>) {
     if (key in this.subscribers) {
       this.subscribers[key]!.push(subscriber);

@@ -1,4 +1,5 @@
 @let movie = movie$ | async;
+@let inWatchList = inWatchList$ | async;
 
 @if (loadingStatus() === "error") {
   <div>error...</div>
@@ -20,25 +21,14 @@
 
           <div class="info__plot">{{ movie.plot }}</div>
 
-          @if (inWatchList$ | async) {
-            <button
-              app-button
-              class="info__btn-watchlist"
-              type="outlined"
-              (click)="onRemoveFromWatchList(movie)"
-            >
-              - WATCHLIST
-            </button>
-          } @else {
-            <button
-              app-button
-              class="info__btn-watchlist"
-              type="outlined"
-              (click)="onAddToWatchList(movie)"
-            >
-              + WATCHLIST
-            </button>
-          }
+          <button
+            app-button
+            class="info__btn-watchlist"
+            type="outlined"
+            (click)="onToggleInWatchList(!!inWatchList, movie)"
+          >
+            {{ inWatchList ? "- WATCHLIST" : "+ WATCHLIST" }}
+          </button>
         </section>
 
         <section>

@@ -1,5 +1,5 @@
 import { inject, Injectable } from '@angular/core';
-import { BehaviorSubject, forkJoin, map, shareReplay, tap } from 'rxjs';
+import { BehaviorSubject, forkJoin, map, shareReplay } from 'rxjs';
 
 import { MoviesApi } from '../../infrastructure/apis';
 import { LocalStorageService } from '../../infrastructure/local-storage';
@@ -25,12 +25,16 @@ export class WatchListService {
       const watchListIds = this.localStorageService.get('__v1/watch-list');
       const watchList = watchListIds.map((id) => this.movieApi.getById(id));
 
-      forkJoin(watchList)
-        .pipe(tap(() => this.loadingStatus.next('done')))
-        .subscribe({
-          next: (values) => this.watchList.next(values),
-          error: (error) => this.watchList.error(error),
-        });
+      forkJoin(watchList).subscribe({
+        next: (values) => {
+          this.watchList.next(values);
+          this.loadingStatus.next('done');
+        },
+        error: (error) => {
+          this.watchList.error(error);
+          this.loadingStatus.next('error');
+        },
+      });
     }
 
     return this.watchList$;

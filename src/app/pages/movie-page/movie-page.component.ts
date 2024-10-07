@@ -45,11 +45,11 @@ export class MoviePageComponent {
     switchMap((params) => this.watchListService.inWatchList(params['id'])),
   );
 
-  public onAddToWatchList(movie: Movie) {
-    this.watchListService.addMovie(movie);
-  }
-
-  public onRemoveFromWatchList(movie: Movie) {
-    this.watchListService.removeMovie(movie);
+  public onToggleInWatchList(inWatchList: boolean, movie: Movie) {
+    if (inWatchList) {
+      this.watchListService.removeMovie(movie);
+    } else {
+      this.watchListService.addMovie(movie);
+    }
   }
 }

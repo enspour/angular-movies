@@ -35,7 +35,7 @@ export class SearchService {
     this.reset.pipe(map(resetHandler)),
     this.config.pipe(
       switchMap(({ text, page }) => this.moviesApi.search(text, page)),
-      map(accumulateHandler),
+      map(configHandler),
     ),
   ).pipe(scan((acc, handler) => handler(acc), resetHandler()()));
 
@@ -54,7 +54,7 @@ export class SearchService {
   }
 }
 
-const accumulateHandler = (result: SearchResult) => {
+const configHandler = (result: SearchResult) => {
   return (acc: SearchResult): SearchResult => ({
     total: result.total,
     movies: [...acc.movies, ...result.movies],
